@@ -1,0 +1,24 @@
+{
+  "name": "allex_doublelinkedlistlowlevellib",
+  "version": "1.0.0",
+  "description": "Traversable JavaScript double linked list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allex-lowlevel-libs/doublelinkedlist.git"
+  },
+  "keywords": [
+    "ecosystem:AllexJS",
+    "double-linked-list",
+    "traversable"
+  ],
+  "author": "Andrija Petrovic <andrija.hers@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allex-lowlevel-libs/doublelinkedlist/issues"
+  },
+  "homepage": "https://github.com/allex-lowlevel-libs/doublelinkedlist#readme"
+}
