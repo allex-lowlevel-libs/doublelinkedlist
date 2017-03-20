@@ -17,14 +17,20 @@ function createDoubleLinkedList(doublelinkedlistbase, inherit) {
   }
   ListMixin.addMethods(DoubleLinkedList);
   DoubleLinkedList.prototype.push = function(content){
-    var newItem = new DoubleLinkedListItem(content);
-    this.assureForController();
+    var newItem;
+    if (!this.assureForController()) {
+      return;
+    }
+    newItem = new DoubleLinkedListItem(content);
     this.controller.addToBack(newItem);
     return newItem;
   };
   DoubleLinkedList.prototype.unshift = function(content){
-    var newItem = new DoubleLinkedListItem(content);
-    this.assureForController();
+    var newItem;
+    if (!this.assureForController()) {
+      return;
+    }
+    newItem = new DoubleLinkedListItem(content);
     this.controller.addToFront(newItem);
     return newItem;
   };
@@ -34,8 +40,10 @@ function createDoubleLinkedList(doublelinkedlistbase, inherit) {
     if (!tail) {
       return;
     }
+    if (!this.assureForController()) {
+      return;
+    }
     ret = tail.content;
-    this.assureForController();
     this.controller.remove(tail);
     tail.destroy();
     return ret;
@@ -46,8 +54,10 @@ function createDoubleLinkedList(doublelinkedlistbase, inherit) {
     if (!head) {
       return;
     }
+    if (!this.assureForController()) {
+      return;
+    }
     ret = head.content;
-    this.assureForController();
     this.controller.remove(head);
     head.destroy();
     return ret;
@@ -57,7 +67,9 @@ function createDoubleLinkedList(doublelinkedlistbase, inherit) {
     if (!head) {
       return;
     }
-    this.assureForController();
+    if (!this.assureForController()) {
+      return;
+    }
     this.controller.traverse(func);
   };
   DoubleLinkedList.prototype.traverseConditionally = function(func){
@@ -65,7 +77,9 @@ function createDoubleLinkedList(doublelinkedlistbase, inherit) {
     if (!head) {
       return;
     }
-    this.assureForController();
+    if (!this.assureForController()) {
+      return;
+    }
     return this.controller.traverseConditionally(func);
   };
   DoubleLinkedList.prototype.getDoubleLinkedListLength = function () {
