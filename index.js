@@ -72,6 +72,16 @@ function createDoubleLinkedList(doublelinkedlistbase, inherit) {
     }
     this.controller.traverse(func);
   };
+  DoubleLinkedList.prototype.traverseSafe = function (func) {
+    var head = this.head;
+    if (!head) {
+      return;
+    }
+    if (!this.assureForController()) {
+      return;
+    }
+    this.controller.traverseSafe(func, 'Error in DoubleLinkedList.traverseSafe');
+  };
   DoubleLinkedList.prototype.traverseConditionally = function(func){
     var head = this.head;
     if (!head) {
